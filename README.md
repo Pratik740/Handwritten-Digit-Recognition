@@ -2,8 +2,6 @@
 
 This is a web application that recognizes handwritten digits (0-9) from an uploaded image. It uses a K-Nearest Neighbors (KNN) machine learning model trained on the MNIST dataset.
 
-![Screenshot of the application](static/images/image.png)
-
 ## Features
 
 -   **Image Upload:** Upload an image of a handwritten digit.
