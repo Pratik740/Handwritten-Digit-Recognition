@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Inspired by neon/gradient backgrounds */
+    background: black;
+    color: #b8e3e9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;   
+    background: #4F7C82;   
+    
+  }
+
+  .info-msg{
+    color:#c1f2f9;
+    margin-bottom: 30px;
+    font-size: 1.3em;
+  }
+  
+  
+  /* Container: semi-transparent card with neon glow edges */
+  .container {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 50px #B8E3E9;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    padding: 10px 20px;
+    max-height: 700px;
+    background-color: #0B2E33;    
+  }
+  
+  h1 {    
+    font-weight: 300;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;   
+    text-shadow: 0 0 2px #B8E3E9  ;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* File input styling: dark background, glow border */
+  input[type="file"] {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 12px;
+    border: 2px dashed #B8E3E9;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 16px;
+   
+    cursor: pointer;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+  input[type="file"]:hover {
+    border-color: #ff5174;
+  }
+  
+  /* The button with glowish red background */
+  button {
+    display: block;
+    margin: 0 auto;
+    background-color: #B8E3E9; /* Reddish neon color */
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 18px;
+    color: #0B2E33;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 5px rgba(255, 23, 68, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff5174;
+    box-shadow: 0 0 25px rgba(255, 81, 116, 0.8);
+  }
+  
+  /* Uploaded image styling */
+  .result-img {
+    margin: 20px auto;
+    display: block;
+    max-width: 200px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 15px #0B2E33;
+  }
+  
+  /* Predicted digit styling */
+  .result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;    
+    text-align: center;
+    color:whitesmoke;
+  }
+  
+  /* Spinner overlay styling */
+  #spinner {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+  }
+  
+  #spinner .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #ff1744;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .hide{
+    display:none;
+  }

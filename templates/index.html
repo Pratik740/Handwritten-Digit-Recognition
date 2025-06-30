@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+  <div id="spinner">
+    <div class="loader"></div>
+  </div>
+  
+  <div class="container">
+    <h1 class="shiny-text"> Handwritten Digit Recognition</h1>
+    <br>
+    {% if prediction is none and image is none %}
+      <div class="info-msg">
+        📌 Please upload a handwritten digit ( 0-9 ) image.
+      </div>
+    {% endif %}
+    
+    <form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="showSpinner()">
+      <div class="form-group">
+        <input id="input" type="file" name="image" accept="image/*" required>
+      </div>
+
+      <div class="hide" >
+        <h3 style="margin-top: 30px; color: #ffd3eb; ">Uploaded Image:</h3>
+        <img alt="Uploaded Digit" class="result-img">
+      </div>
+      <button type="submit"> Predict </button>
+    </form>
+    
+    
+
+    {% if image %}
+    <div id="kill">
+      <h3 style="margin-top: 30px; color: #ffd3eb; text-shadow: 0 0 5px rgba(255,255,255,0.3)">Uploaded Image:</h3>
+      <img src="{{ url_for('static', filename=image) }}" class="result-img" alt="Uploaded Image" style="max-height:200px;">
+    </div>
+    {% endif %}
+    
+    {% if prediction is not none %}
+      <div class="result">
+        Predicted Digit: {{ prediction }}
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    function showSpinner() {
+      document.getElementById('spinner').style.display = 'block';
+      document.querySelector('.hide').style.display = 'none';
+      
+    }
+
+    document.getElementById('input').addEventListener('change',(e)=>{
+      document.querySelector('#kill').style.display = 'none';
+      document.querySelector('.result').style.display = 'none';
+      const file = e.target.files[0];
+      if (file){
+        const reader = new FileReader(); // Runs when reading is completed
+        reader.onload = function(e){
+          const btn = document.querySelector('.hide');
+          document.querySelector('.result-img').src = e.target.result;
+          btn.style.display = 'block';
+        }  
+        reader.readAsDataURL(file); // It reads the file asynchronously and converts it into data URL.
+      }
+    })
+  </script>
+</body>
+</html>
